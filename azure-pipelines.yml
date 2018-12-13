@@ -19,7 +19,7 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
-  - script: dotnet build -c '$(buildConfiguration)' -f '$(buildPlatform)'
+  - script: dotnet build -c '$(buildConfiguration)'
 
   - task: DotNetCoreCLI@2
     inputs:
@@ -27,7 +27,7 @@ jobs:
       projects: '**/PruebasUnitarias.csproj'
       arguments: '--configuration $(buildConfiguration)'
 
-- job: macOS
+- job: MacOS
   pool:
     vmImage: 'macOS-10.13'
   
@@ -43,7 +43,7 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
-  - script: dotnet build -c '$(buildConfiguration)' -f '$(buildPlatform)'
+  - script: dotnet build -c '$(buildConfiguration)'
 
   - task: DotNetCoreCLI@2
     inputs:
@@ -63,11 +63,15 @@ jobs:
   steps:
   - task: NuGetToolInstaller@0
 
+  - task: DotNetCoreInstaller@0
+    inputs:
+      version: '2.1.300'
+
   - task: NuGetCommand@2
     inputs:
       restoreSolution: '$(solution)'
 
-  - script: dotnet build -c '$(buildConfiguration)' -f '$(buildPlatform)'
+  - script: dotnet build -c '$(buildConfiguration)'
 
   - task: DotNetCoreCLI@2
     inputs:
