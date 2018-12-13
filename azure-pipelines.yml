@@ -43,13 +43,13 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
-  - task: VSBuild@1
-    inputs:
-      solution: '$(solution)'
-      platform: '$(buildPlatform)'
-      configuration: '$(buildConfiguration)'
-
   - script: dotnet build --configuration '$(buildConfiguration)' --platform '$(buildPlatform)'
+
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: test
+      projects: '**/PruebasUnitarias.csproj'
+      arguments: '--configuration $(buildConfiguration)'
 
 - job: Windows
   pool:
