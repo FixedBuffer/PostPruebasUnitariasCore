@@ -49,7 +49,7 @@ jobs:
       platform: '$(buildPlatform)'
       configuration: '$(buildConfiguration)'
 
-  - script: dotnet build -- configuration: '$(buildConfiguration)' --platform: '$(buildPlatform)'
+  - script: dotnet build --configuration '$(buildConfiguration)' --platform '$(buildPlatform)'
 
 - job: Windows
   pool:
@@ -67,7 +67,7 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
-  - script: dotnet build -- configuration: '$(buildConfiguration)' --platform: '$(buildPlatform)'
+  - script: dotnet build --configuration '$(buildConfiguration)' --platform '$(buildPlatform)'
 
   - task: DotNetCoreCLI@2
     inputs:
