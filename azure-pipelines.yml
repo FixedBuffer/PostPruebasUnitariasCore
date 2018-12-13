@@ -72,10 +72,11 @@ jobs:
       restoreSolution: '$(solution)'
 
   - task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    inputs:
+      solution: '$(solution)'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
+
 
   - task: DotNetCoreCLI@2
     inputs:
