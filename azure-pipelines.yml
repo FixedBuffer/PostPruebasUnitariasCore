@@ -77,7 +77,6 @@ jobs:
       platform: '$(buildPlatform)'
       configuration: '$(buildConfiguration)'
 
-
   - task: DotNetCoreCLI@2
     inputs:
       command: test
