@@ -19,7 +19,7 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
-  - script: dotnet build --configuration '$(buildConfiguration)' --platform '$(buildPlatform)'
+  - script: dotnet build -c '$(buildConfiguration)' -f '$(buildPlatform)'
 
   - task: DotNetCoreCLI@2
     inputs:
@@ -43,7 +43,7 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
-  - script: dotnet build --configuration '$(buildConfiguration)' --platform '$(buildPlatform)'
+  - script: dotnet build -c '$(buildConfiguration)' -f '$(buildPlatform)'
 
   - task: DotNetCoreCLI@2
     inputs:
@@ -67,7 +67,7 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
-  - script: dotnet build --configuration '$(buildConfiguration)' --platform '$(buildPlatform)'
+  - script: dotnet build -c '$(buildConfiguration)' -f '$(buildPlatform)'
 
   - task: DotNetCoreCLI@2
     inputs:
