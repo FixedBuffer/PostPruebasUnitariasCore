@@ -20,7 +20,7 @@ steps:
 
 - task: DotNetCoreInstaller@0
   inputs:
-    version: '2.2.103'
+    version: '2.1.503'
 
 - task: NuGetCommand@2
   inputs:
