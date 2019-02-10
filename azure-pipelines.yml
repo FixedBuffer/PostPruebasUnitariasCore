@@ -10,27 +10,26 @@ strategy:
 pool:
   vmImage: $(imageName)
     
-  variables:
+variables:
     solution: '**/*.sln'
     buildPlatform: 'Any CPU'
     buildConfiguration: 'Release'
 
-  steps:
-  - task: NuGetToolInstaller@0
+steps:
+- task: NuGetToolInstaller@0
 
-  - task: DotNetCoreInstaller@0
-    inputs:
-      version: '2.2.103'
+- task: DotNetCoreInstaller@0
+  inputs:
+    version: '2.2.103'
 
-  - task: NuGetCommand@2
-    inputs:
-      restoreSolution: '$(solution)'
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
 
-  - script: dotnet build -c '$(buildConfiguration)'
+- script: dotnet build -c '$(buildConfiguration)'
 
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: test
-      projects: '**/PruebasUnitarias.csproj'
-      arguments: '--configuration $(buildConfiguration)'
-
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/PruebasUnitarias.csproj'
+    arguments: '--configuration $(buildConfiguration)'
