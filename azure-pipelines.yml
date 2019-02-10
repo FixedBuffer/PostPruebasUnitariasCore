@@ -13,7 +13,6 @@ pool:
 variables:
     solution: '**/*.sln'
     test: '**/PruebasUnitarias.csproj'
-    buildPlatform: 'Any CPU'
     buildConfiguration: 'Release'
 
 steps:
@@ -31,10 +30,10 @@ steps:
   inputs:
     command: build
     projects: '$(solution)'
-    configuration: '$(buildConfiguration)'
+    arguments: '--configuration $(buildConfiguration)' 
 
 - task: DotNetCoreCLI@2
   inputs:
     command: test
     projects: '$(test)'
-    configuration: '$(buildConfiguration)'
+    arguments: '--configuration $(buildConfiguration)' 
